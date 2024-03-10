@@ -1,15 +1,16 @@
 import { BrowserWindow, app } from 'electron'
+import { MainWindow } from './windows'
 
-const createWindow = () => {
-	const win = new BrowserWindow({
-		width: 800,
-		height: 600
-	})
-
-	// win.loadFile('index.html')
-	win.loadURL('http://localhost:5175')
-}
+let mainWindow: MainWindow
 
 app.whenReady().then(() => {
-	createWindow()
+	mainWindow = new MainWindow()
+	mainWindow.show()
+})
+
+app.on('activate', () => {
+	if (BrowserWindow.getAllWindows().length === 0) {
+		mainWindow = new MainWindow()
+		mainWindow.show()
+	}
 })

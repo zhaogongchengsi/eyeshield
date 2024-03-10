@@ -9,4 +9,7 @@ export default defineConfig({
     react(),
     pages()
   ],
+  server: {
+    port: 5678,
+  }
 });
