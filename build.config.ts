@@ -7,5 +7,5 @@ export default defineBuildConfig({
 	outDir: "electron",
 	externals: [
 		'electron'
-	]
+	],
 })
