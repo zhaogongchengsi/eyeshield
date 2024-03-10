@@ -1,5 +1,13 @@
 import { BrowserWindow, app } from "electron";
 import store from './store'
+import { dirname, join } from "path";
+import { fileURLToPath } from "url";
+
+const _dirname =
+	typeof __dirname !== "undefined"
+		? __dirname
+		: dirname(fileURLToPath(import.meta.url));
+
 export class MainWindow {
 	private window: BrowserWindow;
 
@@ -18,9 +26,12 @@ export class MainWindow {
 			minHeight: 500,
 			show: false,
 			backgroundColor: this.getColor(),
+			darkTheme: store.get('theme') === 'dark',
+			titleBarStyle: 'hidden',
 			title: app.name,
 			webPreferences: {
 				nodeIntegration: true,
+				preload: join(_dirname, app.isPackaged ? './preload.js' : '../electron/app/preload.mjs')
 			},
 		});
 
