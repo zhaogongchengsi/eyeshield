@@ -3,7 +3,7 @@ import { useTheme } from "~/hooks/theme";
 import { Button as SemiButton } from "@douyinfe/semi-ui";
 
 export default function Index() {
-    const [_, setTheme] = useTheme();
+  const [_, setTheme] = useTheme();
 
   return (
     <div className="p-2">
