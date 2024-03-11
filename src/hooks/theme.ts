@@ -16,17 +16,27 @@ const setTheme =  (t: Theme) => {
 	}
 }
 
+const getLocalTheme = ()  => window.localStorage.getItem('theme') as Theme
+const setLocalTheme = (t: Theme) => window.localStorage.setItem('theme', t)
+
 const theme = atom('light')
 
+
 const readWriteAtom = atom(
-	async (): Promise<Theme> => {
-		const t = await window.ipc.invoke(Handle.GetTheme) as Theme
-		setTheme(t)
-		return t as Theme
+	// async (): Promise<Theme> => {
+	// 	const t = await window.ipc.invoke(Handle.GetTheme) as Theme
+	// 	setTheme(t)
+	// 	return t as Theme
+	// },
+	(): Theme => {
+		const theme = getLocalTheme()
+		setTheme(theme)
+		return theme
 	},
 	(_, set, newTheme: Theme) => {
-		setTheme(newTheme)
 		set(theme, newTheme)
+		setTheme(newTheme)
+		setLocalTheme(newTheme)
 		window.ipc.invoke(Handle.SetTheme, newTheme)
 	},
 )

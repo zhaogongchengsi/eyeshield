@@ -1,15 +1,15 @@
 import { Button } from "@radix-ui/themes";
 import { useTheme } from "~/hooks/theme";
+import { Button as SemiButton } from "@douyinfe/semi-ui";
 
 export default function Index() {
-    const [theme, setTheme] = useTheme();
+    const [_, setTheme] = useTheme();
 
-    console.log(theme);
   return (
     <div className="p-2">
       <h3>Welcome Home!</h3>
       <Button onClick={() => setTheme("dark")}>dark</Button>
-      <Button onClick={() => setTheme("light")}>light</Button>
+      <SemiButton onClick={() => setTheme("light")}>light</SemiButton>
     </div>
   );
 }
