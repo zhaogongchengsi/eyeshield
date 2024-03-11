@@ -12,7 +12,7 @@ contextBridge.exposeInMainWorld("ipc", {
 	removeListener: (channel: string, callback: (e: IpcRendererEvent) => void) => {
 		ipcRenderer.removeListener(channel, callback)
 	},
-	invoke: <A>(channel: string, ...args: A[]) => {
+	invoke: <R>(channel: string, ...args: unknown[]):Promise<R> => {
 		return ipcRenderer.invoke(channel, ...args)
 	},
 	addEventListener: (channel: string, callback: (e: IpcRendererEvent) => void) => {

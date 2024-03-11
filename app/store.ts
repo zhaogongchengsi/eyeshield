@@ -9,7 +9,7 @@ type Config = {
 
 const store = new Store<Config>({
 	defaults: {
-		dbFile: join(app.getPath('userData'), 'db.sqlite'),
+		dbFile: app.isPackaged ? join(process.cwd(), 'prisma/dev.db') : join(app.getPath('userData'), 'db.sqlite'),
 		theme: 'light'
 	}
 })
