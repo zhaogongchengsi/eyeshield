@@ -1,7 +1,8 @@
-import { app, ipcMain } from 'electron'
+import { ipcMain, nativeTheme, IpcMainInvokeEvent } from 'electron'
 import store from './store'
 import { PrismaClient } from '@prisma/client'
 import { Handle } from '../share/constant'
+
 export default class {
 	private dbFile: string;
 	private prisma: PrismaClient;
@@ -14,17 +15,17 @@ export default class {
 				}
 			}
 		})
-		app.on('ready', () => {
-			ipcMain.handle(Handle.GetTheme, this.getTheme.bind(this))
-			console.log('handle ready')
-		})
+
+		ipcMain.handle(Handle.GetTheme, this.getTheme.bind(this))
+		ipcMain.handle(Handle.SetTheme, this.setTheme.bind(this))
 	}
 
 	getTheme () {
 		return store.get('theme')
 	}
 
-	setTheme (_:unknown, value: string) {
+	setTheme(_: IpcMainInvokeEvent, value: Theme) {
+		nativeTheme.themeSource = value
 		store.set('theme', value)
 	}
 
