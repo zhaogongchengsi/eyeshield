@@ -1,8 +1,8 @@
 import { app, ipcMain } from 'electron'
 import store from './store'
 import { PrismaClient } from '@prisma/client'
-
-export default class Handle {
+import { Handle } from '../share/constant'
+export default class {
 	private dbFile: string;
 	private prisma: PrismaClient;
 	constructor () {
@@ -15,9 +15,17 @@ export default class Handle {
 			}
 		})
 		app.on('ready', () => {
-			// ipcMain.handle('', this.getDbFilePath.bind(this))
+			ipcMain.handle(Handle.GetTheme, this.getTheme.bind(this))
 			console.log('handle ready')
 		})
+	}
+
+	getTheme () {
+		return store.get('theme')
+	}
+
+	setTheme (_:unknown, value: string) {
+		store.set('theme', value)
 	}
 
 

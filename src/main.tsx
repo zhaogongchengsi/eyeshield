@@ -1,15 +1,25 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './style/main.css'
+import ReactDOM from "react-dom/client";
+import App from "./App.tsx";
+import "./style/main.css";
 import "@radix-ui/themes/styles.css";
-import { Theme } from "@radix-ui/themes";
-import { BrowserRouter as Router } from "react-router-dom";
+import { Theme,  } from "@radix-ui/themes";
+import { BrowserRouter } from "react-router-dom";
 
-ReactDOM.createRoot(document.getElementById("root")!).render(
-    <Theme>
-      <Router>
+function mount() {
+  const root = document.getElementById("root")!;
+  root.innerHTML = "";
+
+  ReactDOM.createRoot(root).render(
+    <Theme appearance="light">
+      <BrowserRouter>
         <App />
-      </Router>
+      </BrowserRouter>
     </Theme>,
-);
+  );
+}
+
+async function setup() {
+  mount();
+}
+
+setup();

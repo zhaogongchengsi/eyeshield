@@ -1,12 +1,35 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Eyeshield</title>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Eyeshield</title>
+  <style>
+    .loading {
+      width: 100vw;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="root">
+    <div class="loading">
+      <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24">
+        <path fill="none" stroke="currentColor" stroke-dasharray="15" stroke-dashoffset="15" stroke-linecap="round"
+          stroke-width="2" d="M12 3C16.9706 3 21 7.02944 21 12">
+          <animate fill="freeze" attributeName="stroke-dashoffset" dur="0.3s" values="15;0" />
+          <animateTransform attributeName="transform" dur="1.5s" repeatCount="indefinite" type="rotate"
+            values="0 12 12;360 12 12" />
+        </path>
+      </svg>
+    </div>
+  </div>
+  <script type="module" src="/src/main.tsx"></script>
+</body>
+
 </html>
