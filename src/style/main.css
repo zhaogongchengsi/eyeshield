@@ -3,3 +3,26 @@
 @theme {
   --font-family-display: "Satoshi", "sans-serif";
 }
+
+:root {
+  --app-safe-area: 4px;
+  --app-gap: 4px;
+  --app-header-height: 30px;
+  --app-aside-width: 40px;
+  --app-aside-footer-height: 80px;
+  --app-aside-content-height: calc(100vh - var(--app-header-height) - var(--app-aside-footer-height) - var(--app-gap));
+  --app-content-height: calc(100vh - var(--app-header-height) - var(--app-gap));
+  --app-main-width: calc(100% - var(--app-aside-width) - var(--app-gap));
+}
+
+.not-user-select {
+  -webkit-user-select: none;
+}
+
+.drag {
+  -webkit-app-region: drag;
+  /* -webkit-user-select: none; */
+}
+.not-drag {
+  -webkit-app-region: no-drag;
+}
