@@ -3,7 +3,7 @@ import { Handle } from "../../share/constant";
 import { atomWithStorage } from 'jotai/utils'
 import { useEffect } from "react";
 
-const darkModeAtom = atomWithStorage('darkMode', Boolean(localStorage.getItem('darkMode') || false))
+const darkModeAtom = atomWithStorage('darkMode', false)
 
 const html = document.documentElement;
 const body = document.body;
@@ -24,6 +24,7 @@ export const useTheme = ():[boolean, () => void] => {
 	}, [theme]);
 
 	const triggerTheme = () => {
+
 		setTheme(!theme)
 	}
 
