@@ -2,5 +2,13 @@ import { radixThemePreset } from 'radix-themes-tw';
 
 // eslint-disable-next-line no-undef
 module.exports = {
-	presets: [radixThemePreset]
+	darkMode:'class',
+	presets: [radixThemePreset],
+	theme: {
+        extend: {
+            colors: {
+                dark:'#121212'
+            },
+        },
+    },
 }
