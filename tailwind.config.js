@@ -1,6 +1,6 @@
 import { radixThemePreset } from 'radix-themes-tw';
 
 module.exports = {
-	darkMode:'class',
+	darkMode:'selector',
 	presets: [radixThemePreset],
 }

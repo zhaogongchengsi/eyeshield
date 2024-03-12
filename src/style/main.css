@@ -11,7 +11,7 @@
   --app-aside-width: 40px;
   --app-aside-footer-height: 80px;
   --app-aside-content-height: calc(100vh - var(--app-header-height) - var(--app-aside-footer-height) - var(--app-gap));
-  --app-content-height: calc(100vh - var(--app-header-height) - var(--app-gap));
+  --app-content-height: calc(100vh - var(--app-header-height));
   --app-main-width: calc(100% - var(--app-aside-width) - var(--app-gap));
 }
 

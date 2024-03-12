@@ -1,6 +1,6 @@
 import { cva } from "class-variance-authority";
 
-const AppHeaderClass = cva("w-full h-[var(--app-header-height)] drag px-4 flex items-center", {
+const AppHeaderClass = cva("w-full h-[var(--app-header-height)] drag px-4 flex items-center border-b", {
   variants: {
     os: {
       mac: "justify-end",
