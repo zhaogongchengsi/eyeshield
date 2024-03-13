@@ -1,16 +1,19 @@
 import { cva } from "class-variance-authority";
 
-const AppHeaderClass = cva("w-full h-[var(--app-header-height)] drag px-4 flex items-center border-b", {
-  variants: {
-    os: {
-      mac: "justify-end",
-      win: "justify-between",
+const AppHeaderClass = cva(
+  "w-full h-[var(--app-header-height)] drag px-4 flex items-center border-b border-zinc-200 dark:border-zinc-700",
+  {
+    variants: {
+      os: {
+        mac: "justify-end",
+        win: "justify-between",
+      },
+    },
+    defaultVariants: {
+      os: "win",
     },
   },
-  defaultVariants: {
-    os: "win",
-  },
-});
+);
 
 export default function AppHeader() {
   const isMac = window.is.isMacOS;

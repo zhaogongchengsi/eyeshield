@@ -15,14 +15,18 @@
   --app-main-width: calc(100% - var(--app-aside-width) - var(--app-gap));
 }
 
+
 .not-user-select {
   -webkit-user-select: none;
 }
 
 .drag {
   -webkit-app-region: drag;
-  /* -webkit-user-select: none; */
 }
 .not-drag {
   -webkit-app-region: no-drag;
+}
+
+.app-button {
+  @apply cursor-pointer p-1 rounded-full hover:bg-zinc-100 dark:hover:bg-zinc-800;
 }
