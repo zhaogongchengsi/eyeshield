@@ -7,11 +7,11 @@ import { Theme } from "@radix-ui/themes";
 
 function App() {
   return (
-    <>
+    <div>
       <Theme>
         <Suspense fallback={<Loading />}>{useRoutes(routes)}</Suspense>
       </Theme>
-    </>
+    </div>
   );
 }
 
