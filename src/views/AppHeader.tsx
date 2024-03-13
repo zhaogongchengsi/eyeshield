@@ -21,7 +21,7 @@ export default function AppHeader() {
   if (isMac) {
 	return (
       <header className={AppHeaderClass({ os: 'mac' })}>
-        <h1 className="app-title">React App</h1>
+        {/* <h1 className="app-title">React App</h1> */}
       </header>
     );
   }
