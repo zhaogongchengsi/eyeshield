@@ -18,5 +18,8 @@ export default defineConfig({
     alias: {
       '~/': join(__dirname, 'src/'),
     },
+  },
+  build: {
+    outDir: 'electron/renderer'
   }
 });

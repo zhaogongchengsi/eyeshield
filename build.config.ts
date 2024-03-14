@@ -9,4 +9,5 @@ export default defineBuildConfig({
 	externals: [
 		'electron'
 	],
+	declaration: false,
 })
