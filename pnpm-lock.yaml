@@ -44,6 +44,9 @@ dependencies:
   std-env:
     specifier: ^3.7.0
     version: 3.7.0
+  tailwind-merge:
+    specifier: ^2.2.1
+    version: 2.2.1
 
 devDependencies:
   '@tailwindcss/vite':
@@ -5528,6 +5531,12 @@ packages:
       csso: 5.0.5
       picocolors: 1.0.0
     dev: true
+
+  /tailwind-merge@2.2.1:
+    resolution: {integrity: sha512-o+2GTLkthfa5YUt4JxPfzMIpQzZ3adD1vLVkvKE1Twl9UAhGsEbIZhHHZVRttyW177S8PDJI3bTQNaebyofK3Q==}
+    dependencies:
+      '@babel/runtime': 7.24.0
+    dev: false
 
   /tailwindcss@4.0.0-alpha.7:
     resolution: {integrity: sha512-Y91+cS79h3+CdFT8Y8zgUWSZvjLASd0nGnnxhZextBDZGl7GGqcy9QLly2Sw4TcPuPryS7/nJr8pRjp9lQazIA==}
