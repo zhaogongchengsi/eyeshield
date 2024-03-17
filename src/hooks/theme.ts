@@ -1,5 +1,5 @@
 import { useAtom } from "jotai";
-import { Handle } from "../../share/constant";
+import { Handle } from "@eyeshield/shared";
 import { atomWithStorage } from 'jotai/utils'
 import { useEffect } from "react";
 

@@ -20,9 +20,9 @@
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
-      "~/*": ["./src/*"]
+      "~/*": ["./src/*"],
     },
   },
-  "include": ["src", "app", "types", "share"],
+  "include": ["src", "app", "types", "shared", "packages"],
   "references": [{ "path": "./tsconfig.node.json" }]
 }

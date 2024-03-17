@@ -1,7 +1,7 @@
 import { ipcMain, nativeTheme, IpcMainInvokeEvent } from 'electron'
 import store from './store'
 import { PrismaClient } from '@prisma/client'
-import { Handle } from '../share/constant'
+import { Handle } from '@eyeshield/shared'
 
 export default class {
 	private dbFile: string;

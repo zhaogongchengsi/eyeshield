@@ -6,6 +6,7 @@ import { join } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: './',
   plugins: [
     tailwindcss(),
     react(),
@@ -20,6 +21,6 @@ export default defineConfig({
     },
   },
   build: {
-    outDir: 'electron/renderer'
+    outDir: 'electron/renderer',
   }
 });

@@ -31,7 +31,8 @@ export class MainWindow {
 			title: app.name,
 			webPreferences: {
 				nodeIntegration: true,
-				preload: join(_dirname, './preload.mjs')
+				preload: join(_dirname, './preload.mjs'),
+				webSecurity: false
 			},
 		});
 

@@ -11,6 +11,9 @@ importers:
       '@douyinfe/semi-ui':
         specifier: ^2.54.0
         version: 2.54.0(react-dom@18.2.0)(react@18.2.0)
+      '@eyeshield/shared':
+        specifier: workspace:^
+        version: link:packages/shared
       '@prisma/client':
         specifier: 5.10.2
         version: 5.10.2(prisma@5.10.2)
@@ -102,6 +105,8 @@ importers:
       vite-plugin-pages:
         specifier: ^0.32.0
         version: 0.32.0(vite@5.1.5)
+
+  packages/shared: {}
 
 packages:
 
