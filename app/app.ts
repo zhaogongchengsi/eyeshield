@@ -1,8 +1,11 @@
 import { BrowserWindow, app } from 'electron'
 import { MainWindow } from './windows'
+
 let mainWindow: MainWindow
 
-new (await import('./handle')).default()
+import('./handle').then((handle) => {
+	new handle.default()
+})
 
 app.whenReady().then(() => {
 	mainWindow = new MainWindow()

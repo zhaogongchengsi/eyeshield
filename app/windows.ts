@@ -37,9 +37,9 @@ export class MainWindow {
 		});
 
 		if (process.env.NODE_ENV === 'development') {
-			this.window.loadURL("http://localhost:5678");
+			this.window.loadURL("http://localhost:5678/");
 		} else {
-			this.window.loadFile(resolve(_dirname, '../renderer/index.html'));
+			this.window.loadFile(resolve(_dirname, '../renderer/index.html/'));
 		}
 	}
 
