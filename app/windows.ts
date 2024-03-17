@@ -1,6 +1,6 @@
 import { BrowserWindow, app } from "electron";
 import store from './store'
-import { dirname, join } from "path";
+import { dirname, join, resolve } from "path";
 import { fileURLToPath } from "url";
 
 const _dirname =
@@ -31,14 +31,14 @@ export class MainWindow {
 			title: app.name,
 			webPreferences: {
 				nodeIntegration: true,
-				preload: join(_dirname, app.isPackaged ? './preload.mjs' : '../electron/app/preload.mjs')
+				preload: join(_dirname, './preload.mjs')
 			},
 		});
 
-		if (app.isPackaged) {
-			this.window.loadFile("../renderer/index.html");
-		} else {
+		if (process.env.NODE_ENV === 'development') {
 			this.window.loadURL("http://localhost:5678");
+		} else {
+			this.window.loadFile(resolve(_dirname, '../renderer/index.html'));
 		}
 	}
 
