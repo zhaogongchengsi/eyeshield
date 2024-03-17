@@ -1,9 +1,9 @@
-appId: com.electron.app
+appId: com.eyeshield.app
 productName: eyeshield
 directories:
   buildResources: resources
 files:
-  - 'electron/*'
+  - 'electron/**'
   - 'resources/**'
   - '!**/node_modules/**'
 asarUnpack:

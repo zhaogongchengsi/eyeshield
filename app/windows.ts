@@ -31,12 +31,12 @@ export class MainWindow {
 			title: app.name,
 			webPreferences: {
 				nodeIntegration: true,
-				preload: join(_dirname, app.isPackaged ? './preload.js' : '../electron/app/preload.mjs')
+				preload: join(_dirname, app.isPackaged ? './preload.mjs' : '../electron/app/preload.mjs')
 			},
 		});
 
 		if (app.isPackaged) {
-			this.window.loadFile("file://dist/index.html");
+			this.window.loadFile("../renderer/index.html");
 		} else {
 			this.window.loadURL("http://localhost:5678");
 		}

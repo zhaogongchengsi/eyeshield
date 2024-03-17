@@ -27,3 +27,8 @@ electron
 prisma/migrations/*
 prisma/dev.db
 prisma/dev.db-journal
+.env
+.env.development
+.env.test
+.env.production
+.turbo
