@@ -4,9 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "vitest"
+    "test": "vitest --ui"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "node-schedule": "^2.1.1"
+  },
+  "devDependencies": {
+    "@types/node-schedule": "^2.1.6"
+  }
 }
