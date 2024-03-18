@@ -32,3 +32,4 @@ prisma/dev.db-journal
 .env.test
 .env.production
 .turbo
+packages/prisma/prisma/dev.db
