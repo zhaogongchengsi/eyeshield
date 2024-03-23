@@ -1,5 +1,6 @@
 import { Provide, Rule, Job as PJob } from "./provides/provide";
 import { Job, RecurrenceRule, scheduleJob } from 'node-schedule'
+import { existsSync } from 'fs'
 
 export class Schedule {
 	private provide: Provide
@@ -21,9 +22,18 @@ export class Schedule {
 			rule.tz,
 		)
 	}
-	protected jobCallback(job: PJob) {
+	
+	runJob(job: PJob, ...args: any[]) {
+		const { script } = job;
 		return async () => {
-			console.log(job)
+			if (!existsSync(script) || ['.js'].some((ext) => !script.endsWith(ext))) {
+				throw new Error('The path does not exist, or the file is not a JavaScript')
+			}
+			const module = await import(script)
+			if (!module || typeof module.default !== 'function') {
+				throw new Error('Invalid working script')
+			}
+			return module?.default(...args)
 		}
 	}
 	// 监听
@@ -32,7 +42,7 @@ export class Schedule {
 		for (const schedule of schedules) {
 			const rule = this.createRecurrenceRule(schedule.rule);
 			const id = schedule.job.id;
-			const job = scheduleJob(rule, this.jobCallback(schedule.job))
+			const job = scheduleJob(rule, this.runJob(schedule.job))
 			this.pool.set(id, job);
 		}
 	}
