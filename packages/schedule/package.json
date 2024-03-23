@@ -7,8 +7,8 @@
     "test": "vitest --ui"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "zhaozunhong",
+  "license": "MIT",
   "dependencies": {
     "node-schedule": "^2.1.1"
   },
