@@ -28,7 +28,7 @@ export interface Schedule {
 export interface Provide {
 	getAllSchedules(): Promise<Schedule[]>;
 	// getSchedule(id: ID): Promise<Schedule>;
-	createSchedule(schedule: Schedule): Promise<Schedule>;
+	createSchedule(rule: Rule, script:string): Promise<Schedule>;
 	// updateSchedule(schedule: Schedule): Promise<Schedule>;
 	// deleteSchedule(id: ID): Promise<void>;
 	// deleteAllSchedules(): Promise<void>;

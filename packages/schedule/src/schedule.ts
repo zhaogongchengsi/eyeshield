@@ -1,4 +1,4 @@
-import { Provide, Rule, Job as PJob } from "./provide";
+import { Provide, Rule, Job as PJob } from "./provides/provide";
 import { Job, RecurrenceRule, scheduleJob } from 'node-schedule'
 
 export class Schedule {
