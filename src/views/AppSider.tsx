@@ -12,7 +12,7 @@ export default function AppSider() {
           <AppSiderLink to="/">
             <HomeIcon />
           </AppSiderLink>
-          <AppSiderLink to="/home">
+          <AppSiderLink to="/alarm">
             <BellIcon />
           </AppSiderLink>
         </ScrollArea>
