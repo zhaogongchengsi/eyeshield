@@ -36,7 +36,7 @@ export class Schedule {
 			return module?.default(...args)
 		}
 	}
-	// 监听
+
 	async listen() {
 		const schedules = await this.provide.getAllSchedules()
 		for (const schedule of schedules) {

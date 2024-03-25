@@ -7,6 +7,12 @@
     "test": "vitest --ui"
   },
   "keywords": [],
+  "exports": {
+    ".": {
+      "import": "./index.ts",
+      "require": "./index.ts"
+    }
+  },
   "author": "zhaozunhong",
   "license": "MIT",
   "dependencies": {
