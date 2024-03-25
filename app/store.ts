@@ -6,10 +6,11 @@ type Config = {
 	dbFile: string,
 	theme: Theme
 }
+const idDev = process.env.NODE_ENV === 'development'
 
 const store = new Store<Config>({
 	defaults: {
-		dbFile: app.isPackaged ? join(process.cwd(), 'prisma/dev.db') : join(app.getPath('userData'), 'db.db'),
+		dbFile: idDev ? join(process.cwd(), 'prisma/dev.db') : join(app.getPath('userData'), app.getName(), 'db.db'),
 		theme: 'light'
 	}
 })
