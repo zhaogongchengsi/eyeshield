@@ -10,8 +10,22 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-model User {
-  id    Int     @id @default(autoincrement())
-  email String  @unique
-  name  String?
+model Schedule {
+	id    String     @id @default(uuid())
+  name   String
+  description String?
+  active Boolean
+
+  cron   String?
+
+  year String?
+	month String?
+	date String?
+	dayOfWeek String?
+	hour  String?
+	minute String?
+	second String?
+	tz String?
+
+	script String?
 }
