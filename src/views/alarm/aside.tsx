@@ -1,6 +1,7 @@
 import { PlusIcon } from "@radix-ui/react-icons";
 import { IconButton, ScrollArea, Text, Dialog, Flex, Button } from "@radix-ui/themes";
 import { List } from "@douyinfe/semi-ui";
+import { Form, Tooltip } from "@douyinfe/semi-ui";
 
 const AsideItem = ({ children }: { children: React.ReactNode }) => {
   return (
@@ -13,14 +14,18 @@ const AsideItem = ({ children }: { children: React.ReactNode }) => {
 };
 
 const CreateFrom = ({ children }: { children: React.ReactNode }) => {
+
+  const { Option } = Form.Select;
+
   return (
     <Dialog.Root>
       <Dialog.Trigger>{children}</Dialog.Trigger>
       <Dialog.Content className="max-w-100">
         <Dialog.Title>添加闹钟</Dialog.Title>
-        <Flex direction="column" gap="3">
-          asd
-        </Flex>
+        <Form onValueChange={(values) => console.log(values)}>
+          <Form.Input field="name" label="闹钟名字" />
+          <Form.TextArea field="desc" label="闹钟描述" />
+        </Form>
         <Flex gap="3" mt="4" justify="end">
           <Dialog.Close>
             <Button variant="soft" color="gray">

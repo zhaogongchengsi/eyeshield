@@ -10,7 +10,7 @@ const LinsClass = cva("flex items-center py-3 my-2 justify-center relative", {
   variants: {
     state: {
       active:
-        "after:w-[3px] after:h-full after:absolute after:block after:bg-purple-400 bg-purple-400/20 text-purple-400 after:left-0 after:top-0 after:rounded-e-sm",
+        "after:w-[3px] after:h-full after:absolute after:block after:bg-[var(--accent-9)] bg-[var(--accent-a5)] text-[var(--accent-9)] after:left-0 after:top-0 after:rounded-e-sm",
       pending: "pending",
       transitioning: "transitioning",
     },
