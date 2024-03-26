@@ -1,12 +1,12 @@
-import { Provide, Rule, Job as PJob } from "./provides/provide";
+import { Storage, Rule, Job as PJob } from "./storage/storage";
 import { Job, RecurrenceRule, scheduleJob } from 'node-schedule'
 import { existsSync } from 'fs'
 
 export class Schedule {
-	private provide: Provide
+	private storage: Storage
 	private pool: Map<string | number, Job>
-	constructor(provide: Provide) {
-		this.provide = provide;
+	constructor(storage: Storage) {
+		this.storage = storage;
 		this.pool = new Map()
 	}
 
@@ -23,8 +23,7 @@ export class Schedule {
 		)
 	}
 	
-	runJob(job: PJob, ...args: any[]) {
-		const { script } = job;
+	runJob(script: string, ...args: any[]) {
 		return async () => {
 			if (!existsSync(script) || ['.js'].some((ext) => !script.endsWith(ext))) {
 				throw new Error('The path does not exist, or the file is not a JavaScript')
@@ -38,12 +37,11 @@ export class Schedule {
 	}
 
 	async listen() {
-		const schedules = await this.provide.getAllSchedules()
+		const schedules = await this.storage.getAllSchedules()
 		for (const schedule of schedules) {
-			const rule = this.createRecurrenceRule(schedule.rule);
-			const id = schedule.job.id;
-			const job = scheduleJob(rule, this.runJob(schedule.job))
-			this.pool.set(id, job);
+			const rule = this.createRecurrenceRule(schedule);
+			const job = scheduleJob(rule, this.runJob(schedule.script))
+			this.pool.set(schedule.id, job);
 		}
 	}
 }

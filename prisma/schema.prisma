@@ -2,30 +2,32 @@
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
 generator client {
-  provider = "prisma-client-js"
+    provider = "prisma-client-js"
 }
 
 datasource db {
-  provider = "sqlite"
-  url      = env("DATABASE_URL")
+    provider = "sqlite"
+    url      = env("DATABASE_URL")
 }
 
 model Schedule {
-	id    String     @id @default(uuid())
-  name   String
-  description String?
-  active Boolean
+    id          String  @id @default(uuid())
+    name        String
+    description String?
+    active      Boolean? @default(true)
+    createdAt   DateTime @default(now())
+	updatedAt   DateTime @updatedAt
 
-  cron   String?
 
-  year String?
-	month String?
-	date String?
-	dayOfWeek String?
-	hour  String?
-	minute String?
-	second String?
-	tz String?
+    cron String?
 
-	script String?
+    year      String?
+    month     String?
+    date      String?
+    dayOfWeek String?
+    hour      String?
+    minute    String?
+    second    String?
+    tz        String?
+    script    String
 }

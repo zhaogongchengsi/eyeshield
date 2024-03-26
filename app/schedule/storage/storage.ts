@@ -1,14 +1,12 @@
 import { RecurrenceSegment, Timezone } from "node-schedule";
 
-export type ID = string | number
+export type ID = string
 
 export interface Job {
-	id: ID
 	script: string;
 }
 
 export interface Rule {
-	id?: ID;
 	year?: RecurrenceSegment,
 	month?: RecurrenceSegment,
 	date?: RecurrenceSegment,
@@ -20,15 +18,31 @@ export interface Rule {
 }
 
 export interface Schedule {
-	id: ID;
-	rule: Rule;
-	job: Job;
+	name: string;
+	description?: string | null;
+	active?: boolean;
+	script: string;
+	id: string;
+	year?: RecurrenceSegment,
+	month?: RecurrenceSegment,
+	date?: RecurrenceSegment,
+	dayOfWeek?: RecurrenceSegment,
+	hour?: RecurrenceSegment,
+	minute?: RecurrenceSegment,
+	second?: RecurrenceSegment,
+	tz?: Timezone,
 }
 
-export interface Provide {
+export interface ScheduleInfo {
+	name: string;
+	description?: string;
+	active?: boolean;
+}
+
+export interface Storage {
 	getAllSchedules(): Promise<Schedule[]>;
 	// getSchedule(id: ID): Promise<Schedule>;
-	createSchedule(rule: Rule, script:string): Promise<Schedule>;
+	createSchedule(info: ScheduleInfo,rule: Rule, script:string): Promise<Schedule>;
 	// updateSchedule(schedule: Schedule): Promise<Schedule>;
 	// deleteSchedule(id: ID): Promise<void>;
 	// deleteAllSchedules(): Promise<void>;
