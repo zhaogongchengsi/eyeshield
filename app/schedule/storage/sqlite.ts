@@ -3,14 +3,14 @@ import { Storage, Rule, Schedule, ScheduleInfo } from "./storage";
 import { prismaClient } from "../../database";
 import { RecurrenceSegment } from "node-schedule";
 import { outputFile } from 'fs-extra'
-import { app } from 'electron'
 import { join } from 'path'
 
 export default class Sqlite implements Storage {
 	private prismaSingleton: PrismaClient;
-	private scriptsDir = join(app.getPath('userData'), 'scripts')
-	constructor() {
-		this.prismaSingleton = prismaClient();
+	private scriptsDir: string;
+	constructor(scriptPath: string, dbFile: string) {
+		this.scriptsDir = scriptPath
+		this.prismaSingleton = prismaClient(dbFile);
 	}
 
 	private async createScript (name: string, content: string) {
